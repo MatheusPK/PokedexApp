@@ -22,6 +22,8 @@
 		0978E42B288EB0CD00079DF4 /* ViewCodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E42A288EB0CC00079DF4 /* ViewCodeExtension.swift */; };
 		0978E42F288EB11600079DF4 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E42E288EB11600079DF4 /* ViewCode.swift */; };
 		0978E431288EB30600079DF4 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E430288EB30600079DF4 /* ModuleFactory.swift */; };
+		0978E434288EBAA200079DF4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E433288EBAA200079DF4 /* BaseViewController.swift */; };
+		0978E437288EBAFD00079DF4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E436288EBAFD00079DF4 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		0978E42A288EB0CC00079DF4 /* ViewCodeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeExtension.swift; sourceTree = "<group>"; };
 		0978E42E288EB11600079DF4 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		0978E430288EB30600079DF4 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
+		0978E433288EBAA200079DF4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0978E436288EBAFD00079DF4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				0978E426288EAEDC00079DF4 /* Common */,
 				0978E416288EABEF00079DF4 /* Modules */,
 				0978E417288EAC0C00079DF4 /* Resources */,
+				0978E3F4288C3C1900079DF4 /* Info.plist */,
 			);
 			path = PokedexApp;
 			sourceTree = "<group>";
@@ -149,7 +154,6 @@
 			children = (
 				0978E3F1288C3C1900079DF4 /* LaunchScreen.storyboard */,
 				0978E3EF288C3C1900079DF4 /* Assets.xcassets */,
-				0978E3F4288C3C1900079DF4 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -166,6 +170,7 @@
 		0978E419288EAC8100079DF4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0978E435288EBAD300079DF4 /* Views */,
 				0978E41D288EACC600079DF4 /* HomeViewController.swift */,
 				0978E41F288EACDA00079DF4 /* HomeInteractor.swift */,
 				0978E421288EACEC00079DF4 /* HomePresenter.swift */,
@@ -178,6 +183,7 @@
 		0978E426288EAEDC00079DF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0978E432288EBA9000079DF4 /* BaseClasses */,
 				0978E42C288EB0F100079DF4 /* Protocols */,
 				0978E429288EAF1100079DF4 /* Extensions */,
 			);
@@ -199,6 +205,22 @@
 				0978E430288EB30600079DF4 /* ModuleFactory.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0978E432288EBA9000079DF4 /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				0978E433288EBAA200079DF4 /* BaseViewController.swift */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		0978E435288EBAD300079DF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0978E436288EBAFD00079DF4 /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,12 +355,14 @@
 			files = (
 				0978E422288EACEC00079DF4 /* HomePresenter.swift in Sources */,
 				0978E41E288EACC600079DF4 /* HomeViewController.swift in Sources */,
+				0978E434288EBAA200079DF4 /* BaseViewController.swift in Sources */,
 				0978E431288EB30600079DF4 /* ModuleFactory.swift in Sources */,
 				0978E41B288EAC9700079DF4 /* HomeConfigurator.swift in Sources */,
 				0978E420288EACDA00079DF4 /* HomeInteractor.swift in Sources */,
 				0978E425288EAD0E00079DF4 /* HomeRouter.swift in Sources */,
 				0978E42B288EB0CD00079DF4 /* ViewCodeExtension.swift in Sources */,
 				0978E3E7288C3C1700079DF4 /* AppDelegate.swift in Sources */,
+				0978E437288EBAFD00079DF4 /* HomeView.swift in Sources */,
 				0978E42F288EB11600079DF4 /* ViewCode.swift in Sources */,
 				0978E3E9288C3C1700079DF4 /* SceneDelegate.swift in Sources */,
 			);
