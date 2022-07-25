@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 3. Create the view hierarchy
         
-        let viewController = UINavigationController(rootViewController: ViewController())
+        let viewController = UINavigationController(rootViewController: HomeConfigurator.make(with: .init()))
         
         // 4. Set the root view controller of the window
         window.rootViewController = viewController

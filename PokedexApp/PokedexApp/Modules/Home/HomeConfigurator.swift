@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+final class HomeConfigurator: ModuleFactory {
+    
+    struct Dependencies {}
+    
+    static func make(with dependencies: Dependencies) -> UIViewController {
+        let view = HomeView()
+        let viewController = HomeViewController(mainView: view)
+        return viewController
+    }
+    
+    
+}

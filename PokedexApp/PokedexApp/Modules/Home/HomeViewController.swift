@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+final class HomeViewController: BaseViewController<HomeView> {
+    override func viewDidLoad() {
+        //
+    }
+}
+
