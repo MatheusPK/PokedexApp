@@ -29,7 +29,7 @@ extension HomeView: ViewCode {
     }
     
     func setupExtraConfiguration() {
-        backgroundColor = .blue
+        backgroundColor = K.COLORS.BACKGROUND.WHITE
     }
     
     
