@@ -11,7 +11,7 @@ struct PokemonResponse: Codable {
     let count: Int
     let next: String?
     let previous: String?
-    let result: [PokemonResult]
+    let results: [PokemonResult]
 }
 
 struct PokemonResult: Codable {

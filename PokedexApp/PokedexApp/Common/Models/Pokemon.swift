@@ -1,25 +1,25 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  Pokemon.swift
-//  PokedexApp
-//
-//  Created by Matheus P.K on 27/07/22.
-//
+//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
-// MARK: - Pokemon
-struct Pokemon {
+import Foundation
+
+// MARK: - Welcome
+struct Pokemon: Codable {
     let abilities: [Ability]?
     let baseExperience: Int?
     let forms: [Species]?
     let gameIndices: [GameIndex]?
     let height: Int?
-    let heldItems: [Any?]?
+    let heldItems: [HeldItem]?
     let id: Int?
     let isDefault: Bool?
     let locationAreaEncounters: String?
     let moves: [Move]?
     let name: String?
     let order: Int?
-    let pastTypes: [Any?]?
+    let pastTypes: [PastType]?
     let species: Species?
     let sprites: Sprites?
     let stats: [Stat]?
@@ -28,48 +28,72 @@ struct Pokemon {
 }
 
 // MARK: - Ability
-struct Ability {
+struct Ability: Codable {
     let ability: Species?
     let isHidden: Bool?
     let slot: Int?
 }
 
 // MARK: - Species
-struct Species {
+struct Species: Codable {
     let name: String?
     let url: String?
 }
 
 // MARK: - GameIndex
-struct GameIndex {
+struct GameIndex: Codable {
     let gameIndex: Int?
     let version: Species?
 }
 
+// MARK: - HeldItem
+struct HeldItem: Codable {
+    let item: Species?
+    let versionDetails: [VersionDetail]?
+}
+
+// MARK: - VersionDetail
+struct VersionDetail: Codable {
+    let rarity: Int?
+    let version: Species?
+}
+
 // MARK: - Move
-struct Move {
+struct Move: Codable {
     let move: Species?
     let versionGroupDetails: [VersionGroupDetail]?
 }
 
 // MARK: - VersionGroupDetail
-struct VersionGroupDetail {
+struct VersionGroupDetail: Codable {
     let levelLearnedAt: Int?
     let moveLearnMethod, versionGroup: Species?
 }
 
+// MARK: - PastType
+struct PastType: Codable {
+    let generation: Species?
+    let types: [TypeElement]?
+}
+
+// MARK: - TypeElement
+struct TypeElement: Codable {
+    let slot: Int?
+    let type: Species?
+}
+
 // MARK: - GenerationV
-struct GenerationV {
+struct GenerationV: Codable {
     let blackWhite: Sprites?
 }
 
 // MARK: - GenerationIv
-struct GenerationIv {
+struct GenerationIv: Codable {
     let diamondPearl, heartgoldSoulsilver, platinum: Sprites?
 }
 
 // MARK: - Versions
-struct Versions {
+struct Versions: Codable {
     let generationI: GenerationI?
     let generationIi: GenerationIi?
     let generationIii: GenerationIii?
@@ -81,7 +105,7 @@ struct Versions {
 }
 
 // MARK: - Sprites
-class Sprites {
+class Sprites: Codable {
     let backDefault: String?
     let backFemale: String?
     let backShiny: String?
@@ -110,47 +134,47 @@ class Sprites {
 }
 
 // MARK: - GenerationI
-struct GenerationI {
+struct GenerationI: Codable {
     let redBlue, yellow: RedBlue?
 }
 
 // MARK: - RedBlue
-struct RedBlue {
+struct RedBlue: Codable {
     let backDefault, backGray, backTransparent, frontDefault: String?
     let frontGray, frontTransparent: String?
 }
 
 // MARK: - GenerationIi
-struct GenerationIi {
+struct GenerationIi: Codable {
     let crystal: Crystal?
     let gold, silver: Gold?
 }
 
 // MARK: - Crystal
-struct Crystal {
+struct Crystal: Codable {
     let backDefault, backShiny, backShinyTransparent, backTransparent: String?
     let frontDefault, frontShiny, frontShinyTransparent, frontTransparent: String?
 }
 
 // MARK: - Gold
-struct Gold {
+struct Gold: Codable {
     let backDefault, backShiny, frontDefault, frontShiny: String?
     let frontTransparent: String?
 }
 
 // MARK: - GenerationIii
-struct GenerationIii {
+struct GenerationIii: Codable {
     let emerald: Emerald?
     let fireredLeafgreen, rubySapphire: Gold?
 }
 
 // MARK: - Emerald
-struct Emerald {
+struct Emerald: Codable {
     let frontDefault, frontShiny: String?
 }
 
 // MARK: - Home
-struct Home {
+struct Home: Codable {
     let frontDefault: String?
     let frontFemale: String?
     let frontShiny: String?
@@ -158,42 +182,36 @@ struct Home {
 }
 
 // MARK: - GenerationVii
-struct GenerationVii {
+struct GenerationVii: Codable {
     let icons: DreamWorld?
     let ultraSunUltraMoon: Home?
 }
 
 // MARK: - DreamWorld
-struct DreamWorld {
+struct DreamWorld: Codable {
     let frontDefault: String?
     let frontFemale: String?
 }
 
 // MARK: - GenerationViii
-struct GenerationViii {
+struct GenerationViii: Codable {
     let icons: DreamWorld?
 }
 
 // MARK: - Other
-struct Other {
+struct Other: Codable {
     let dreamWorld: DreamWorld?
     let home: Home?
     let officialArtwork: OfficialArtwork?
 }
 
 // MARK: - OfficialArtwork
-struct OfficialArtwork {
+struct OfficialArtwork: Codable {
     let frontDefault: String?
 }
 
 // MARK: - Stat
-struct Stat {
+struct Stat: Codable {
     let baseStat, effort: Int?
     let stat: Species?
-}
-
-// MARK: - TypeElement
-struct TypeElement {
-    let slot: Int?
-    let type: Species?
 }

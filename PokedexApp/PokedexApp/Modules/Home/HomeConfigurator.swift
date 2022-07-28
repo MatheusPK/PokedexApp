@@ -13,8 +13,18 @@ final class HomeConfigurator: ModuleFactory {
     struct Dependencies {}
     
     static func make(with dependencies: Dependencies) -> UIViewController {
+        
         let view = HomeView()
-        let viewController = HomeViewController(mainView: view)
+        let router = HomeRouter()
+        
+        let worker = PokemonListWorker()
+        let presenter = HomePresenter()
+        let interator = HomeInteractor(worker: worker, presenter: presenter)
+        
+        let viewController = HomeViewController(router: router, interactor: interator, mainView: view)
+        
+        presenter.viewController = viewController
+        
         return viewController
     }
     

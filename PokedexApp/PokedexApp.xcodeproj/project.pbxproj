@@ -27,6 +27,7 @@
 		0987B8CC28915A460034F331 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8CB28915A460034F331 /* Constants.swift */; };
 		0987B8CF28918B600034F331 /* PokemonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8CE28918B600034F331 /* PokemonResponse.swift */; };
 		0987B8D128919C640034F331 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8D028919C630034F331 /* Pokemon.swift */; };
+		0987B8D32892A78A0034F331 /* PokemonListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8D22892A78A0034F331 /* PokemonListWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		0987B8CB28915A460034F331 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0987B8CE28918B600034F331 /* PokemonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponse.swift; sourceTree = "<group>"; };
 		0987B8D028919C630034F331 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		0987B8D22892A78A0034F331 /* PokemonListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				0978E421288EACEC00079DF4 /* HomePresenter.swift */,
 				0978E41A288EAC9700079DF4 /* HomeConfigurator.swift */,
 				0978E424288EAD0E00079DF4 /* HomeRouter.swift */,
+				0987B8D22892A78A0034F331 /* PokemonListWorker.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0978E422288EACEC00079DF4 /* HomePresenter.swift in Sources */,
+				0987B8D32892A78A0034F331 /* PokemonListWorker.swift in Sources */,
 				0978E41E288EACC600079DF4 /* HomeViewController.swift in Sources */,
 				0978E434288EBAA200079DF4 /* BaseViewController.swift in Sources */,
 				0978E431288EB30600079DF4 /* ModuleFactory.swift in Sources */,
