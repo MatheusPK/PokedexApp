@@ -31,8 +31,5 @@ final class HomeViewController: UIViewController {
         interactor.fetchPokemonList()
     }
     
-    
-
-    
 }
 

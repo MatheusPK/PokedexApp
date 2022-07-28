@@ -28,6 +28,7 @@
 		0987B8CF28918B600034F331 /* PokemonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8CE28918B600034F331 /* PokemonResponse.swift */; };
 		0987B8D128919C640034F331 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8D028919C630034F331 /* Pokemon.swift */; };
 		0987B8D32892A78A0034F331 /* PokemonListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8D22892A78A0034F331 /* PokemonListWorker.swift */; };
+		09E1AF0028932FF400060446 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1AEFF28932FF400060446 /* PokemonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		0987B8CE28918B600034F331 /* PokemonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponse.swift; sourceTree = "<group>"; };
 		0987B8D028919C630034F331 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		0987B8D22892A78A0034F331 /* PokemonListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListWorker.swift; sourceTree = "<group>"; };
+		09E1AEFF28932FF400060446 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				0978E436288EBAFD00079DF4 /* HomeView.swift */,
+				09E1AEFF28932FF400060446 /* PokemonCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E1AF0028932FF400060446 /* PokemonCell.swift in Sources */,
 				0978E422288EACEC00079DF4 /* HomePresenter.swift in Sources */,
 				0987B8D32892A78A0034F331 /* PokemonListWorker.swift in Sources */,
 				0978E41E288EACC600079DF4 /* HomeViewController.swift in Sources */,
