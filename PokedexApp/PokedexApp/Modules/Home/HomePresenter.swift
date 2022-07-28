@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+protocol HomePresenterOutput {
+    func presentPokemonList(pokemonList: [Pokemon])
+}
+
+class HomePresenter {
+    weak var viewController: HomeViewController?
+}
+
+extension HomePresenter: HomePresenterOutput {
+    func presentPokemonList(pokemonList: [Pokemon]) {
+        
+    }
+}
