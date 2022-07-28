@@ -25,6 +25,8 @@
 		0978E434288EBAA200079DF4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E433288EBAA200079DF4 /* BaseViewController.swift */; };
 		0978E437288EBAFD00079DF4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E436288EBAFD00079DF4 /* HomeView.swift */; };
 		0987B8CC28915A460034F331 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8CB28915A460034F331 /* Constants.swift */; };
+		0987B8CF28918B600034F331 /* PokemonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8CE28918B600034F331 /* PokemonResponse.swift */; };
+		0987B8D128919C640034F331 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0987B8D028919C630034F331 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		0978E433288EBAA200079DF4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0978E436288EBAFD00079DF4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0987B8CB28915A460034F331 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0987B8CE28918B600034F331 /* PokemonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponse.swift; sourceTree = "<group>"; };
+		0987B8D028919C630034F331 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 		0978E426288EAEDC00079DF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0987B8CD28918B360034F331 /* Models */,
 				0978E432288EBA9000079DF4 /* BaseClasses */,
 				0978E42C288EB0F100079DF4 /* Protocols */,
 				0978E429288EAF1100079DF4 /* Extensions */,
@@ -224,6 +229,15 @@
 				0978E436288EBAFD00079DF4 /* HomeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0987B8CD28918B360034F331 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0987B8CE28918B600034F331 /* PokemonResponse.swift */,
+				0987B8D028919C630034F331 /* Pokemon.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +374,8 @@
 				0978E41E288EACC600079DF4 /* HomeViewController.swift in Sources */,
 				0978E434288EBAA200079DF4 /* BaseViewController.swift in Sources */,
 				0978E431288EB30600079DF4 /* ModuleFactory.swift in Sources */,
+				0987B8CF28918B600034F331 /* PokemonResponse.swift in Sources */,
+				0987B8D128919C640034F331 /* Pokemon.swift in Sources */,
 				0978E41B288EAC9700079DF4 /* HomeConfigurator.swift in Sources */,
 				0978E420288EACDA00079DF4 /* HomeInteractor.swift in Sources */,
 				0978E425288EAD0E00079DF4 /* HomeRouter.swift in Sources */,
