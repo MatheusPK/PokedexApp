@@ -36,7 +36,7 @@ struct Ability: Codable {
 
 // MARK: - Species
 struct Species: Codable {
-    let name: String?
+    let name: PokemonType?
     let url: String?
 }
 

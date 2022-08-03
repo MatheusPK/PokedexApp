@@ -17,6 +17,6 @@ class HomePresenter {
 
 extension HomePresenter: HomePresenterOutput {
     func presentPokemonList(pokemonList: [Pokemon]) {
-        
+        print(pokemonList.first?.types?.first?.type?.name?.text())
     }
 }
