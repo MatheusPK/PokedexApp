@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 
 class HomeView: UIView {
+    
+    let pokemonCell: PokemonCell = {
+        let pokemonCell = PokemonCell(pokemonId: "001", pokemonName: "Bulbasaur", pokemonTypes: [.grass, .poison], pokemonImageURL: "kasjdhfasj")
+        pokemonCell.translatesAutoresizingMaskIntoConstraints = false
+        return pokemonCell
+    }()
+    
     init() {
         super.init(frame: .zero)
         setup()
@@ -21,11 +28,16 @@ class HomeView: UIView {
 
 extension HomeView: ViewCode {
     func setupComponents() {
-        //
+        addSubview(pokemonCell)
     }
     
     func setupConstraints() {
-        //
+        NSLayoutConstraint.activate([
+            pokemonCell.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pokemonCell.centerYAnchor.constraint(equalTo: centerYAnchor),
+            pokemonCell.widthAnchor.constraint(equalToConstant: 334),
+            pokemonCell.heightAnchor.constraint(equalToConstant: 115)
+        ])
     }
     
     func setupExtraConfiguration() {
