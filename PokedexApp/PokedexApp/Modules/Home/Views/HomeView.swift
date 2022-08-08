@@ -11,7 +11,7 @@ import UIKit
 class HomeView: UIView {
     
     let pokemonCell: PokemonCell = {
-        let pokemonCell = PokemonCell(pokemonId: "001", pokemonName: "Bulbasaur", pokemonTypes: [.grass, .poison], pokemonImageURL: "kasjdhfasj")
+        let pokemonCell = PokemonCell(pokemonId: "004", pokemonName: "Charmander", pokemonTypes: [.fire], pokemonImageURL: "kasjdhfasj")
         pokemonCell.translatesAutoresizingMaskIntoConstraints = false
         return pokemonCell
     }()
@@ -34,9 +34,7 @@ extension HomeView: ViewCode {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             pokemonCell.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pokemonCell.centerYAnchor.constraint(equalTo: centerYAnchor),
-            pokemonCell.widthAnchor.constraint(equalToConstant: 334),
-            pokemonCell.heightAnchor.constraint(equalToConstant: 115)
+            pokemonCell.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
