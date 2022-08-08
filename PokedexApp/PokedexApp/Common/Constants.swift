@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 struct K {
+    
+    struct IMAGES {
+        static var POKEBALL_LIST_BACKGROUND    = UIImage(named: "Pokeball")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
+        static var PATTERN_6X3_LIST_BACKGROUND = UIImage(named: "6x3")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
+    }
+    
     struct FONTS {
         static var TITLE             = UIFont.systemFont(ofSize: 100, weight: .bold)
         static var APPLICATION_TITLE = UIFont.systemFont(ofSize: 32, weight: .bold)
