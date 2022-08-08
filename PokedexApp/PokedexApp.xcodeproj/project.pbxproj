@@ -31,6 +31,7 @@
 		09E1AF0028932FF400060446 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1AEFF28932FF400060446 /* PokemonCell.swift */; };
 		09E1AF03289B051100060446 /* TypeBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1AF02289B051100060446 /* TypeBadgeView.swift */; };
 		09E1AF05289B06F200060446 /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1AF04289B06F200060446 /* PokemonType.swift */; };
+		09E1AF07289E97EF00060446 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1AF06289E97EF00060446 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		09E1AEFF28932FF400060446 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		09E1AF02289B051100060446 /* TypeBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeBadgeView.swift; sourceTree = "<group>"; };
 		09E1AF04289B06F200060446 /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
+		09E1AF06289E97EF00060446 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				0978E42A288EB0CC00079DF4 /* ViewCodeExtension.swift */,
+				09E1AF06289E97EF00060446 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				0978E431288EB30600079DF4 /* ModuleFactory.swift in Sources */,
 				0987B8CF28918B600034F331 /* PokemonResponse.swift in Sources */,
 				0987B8D128919C640034F331 /* Pokemon.swift in Sources */,
+				09E1AF07289E97EF00060446 /* UIViewExtension.swift in Sources */,
 				0978E41B288EAC9700079DF4 /* HomeConfigurator.swift in Sources */,
 				0978E420288EACDA00079DF4 /* HomeInteractor.swift in Sources */,
 				0978E425288EAD0E00079DF4 /* HomeRouter.swift in Sources */,

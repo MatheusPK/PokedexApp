@@ -16,30 +16,20 @@ class TypeBadgeView: UIView {
         let label = UILabel()
         label.font = K.FONTS.POKEMON_TYPE
         label.textColor = K.COLORS.TEXT.WHITE
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var typeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     var labelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.alignment = .center
         stackView.spacing = 7
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-    }()
-    
-    var contentView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 3
-        view.translatesAutoresizingMaskIntoConstraints = false
-       return view
     }()
     
     init(type : PokemonType) {
@@ -56,12 +46,7 @@ class TypeBadgeView: UIView {
 
 extension TypeBadgeView: ViewCode {
     func setupComponents() {
-        typeImageView.image = type.icon()?.withTintColor(.white)
-        typeLabel.text = type.text()
-        contentView.backgroundColor = type.color()
-        
-        addSubview(contentView)
-        contentView.addSubview(labelStackView)
+        addSubview(labelStackView)
         labelStackView.addArrangedSubview(typeImageView)
         labelStackView.addArrangedSubview(typeLabel)
     }
@@ -72,11 +57,19 @@ extension TypeBadgeView: ViewCode {
     
     private func setupStackViewConstraints() {
         NSLayoutConstraint.activate([
-            labelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            labelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            labelStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-            labelStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5)
+            labelStackView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            labelStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            labelStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 5),
+            labelStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -5)
         ])
+    }
+    
+    func setupExtraConfiguration() {
+        layer.cornerRadius = 3
+        backgroundColor = type.color()
+        
+        typeImageView.image = type.icon()?.withTintColor(.white)
+        typeLabel.text = type.text()
     }
 
 }
