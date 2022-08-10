@@ -42,9 +42,6 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomePresenterOutput {
     func presentPokemonList(pokemonList: [Pokemon]) {
         mainView.pokemons = pokemonList
-        DispatchQueue.main.async {
-            self.mainView.pokemonTableView.reloadData()
-        }
     }
 }
 

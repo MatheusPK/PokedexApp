@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		095F024628A174D800B30B2D /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F024528A174D800B30B2D /* UIImageExtension.swift */; };
 		095F024928A1CC9400B30B2D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 095F024828A1CC9400B30B2D /* Kingfisher */; };
+		095F024B28A3594D00B30B2D /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F024A28A3594D00B30B2D /* UIStackViewExtension.swift */; };
 		0978E3E7288C3C1700079DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E3E6288C3C1700079DF4 /* AppDelegate.swift */; };
 		0978E3E9288C3C1700079DF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E3E8288C3C1700079DF4 /* SceneDelegate.swift */; };
 		0978E3F0288C3C1900079DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0978E3EF288C3C1900079DF4 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		095F024528A174D800B30B2D /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		095F024A28A3594D00B30B2D /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
 		0978E3E3288C3C1700079DF4 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0978E3E6288C3C1700079DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0978E3E8288C3C1700079DF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				0978E42A288EB0CC00079DF4 /* ViewCodeExtension.swift */,
 				09E1AF06289E97EF00060446 /* UIViewExtension.swift */,
 				095F024528A174D800B30B2D /* UIImageExtension.swift */,
+				095F024A28A3594D00B30B2D /* UIStackViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				0978E425288EAD0E00079DF4 /* HomeRouter.swift in Sources */,
 				0987B8CC28915A460034F331 /* Constants.swift in Sources */,
 				0978E42B288EB0CD00079DF4 /* ViewCodeExtension.swift in Sources */,
+				095F024B28A3594D00B30B2D /* UIStackViewExtension.swift in Sources */,
 				0978E3E7288C3C1700079DF4 /* AppDelegate.swift in Sources */,
 				0978E437288EBAFD00079DF4 /* HomeView.swift in Sources */,
 				0978E42F288EB11600079DF4 /* ViewCode.swift in Sources */,

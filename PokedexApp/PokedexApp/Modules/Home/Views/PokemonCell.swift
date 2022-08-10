@@ -20,7 +20,7 @@ class PokemonCell: UITableViewCell {
     
     var pokemonInfo: PokemonInfo? {
         didSet {
-            setup()
+            configure()
         }
     }
     
@@ -90,24 +90,38 @@ class PokemonCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func configure() {
+        contentView.backgroundColor = pokemonInfo?.types.first?.backgroundColor() ?? PokemonType.grass.backgroundColor()
+        
+        pokemonIdLabel.text = String(format: "#%03d", pokemonInfo?.id ?? 001)
+        pokemonNameLabel.text = pokemonInfo?.name ?? "Bulbasaur"
+        let url = URL(string: pokemonInfo?.imageURL ?? "")
+        pokemonFrontImageView.kf.setImage(
+            with: url,
+            placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT
+        )
+        
+        pokemonTypeStackView.clear()
+        for type in pokemonInfo!.types {
+            pokemonTypeStackView.addArrangedSubview(TypeBadgeView(type: type))
+        }
+        
+    }
+    
+    
 }
 
 extension PokemonCell: ViewCode {
     func setupComponents() {
-        addSubview(dotPatternDecoration)
-        addSubview(pokeballBackground)
-        addSubview(pokemonFrontImageView)
-        addSubview(pokemonInfoStackView)
+        contentView.addSubview(dotPatternDecoration)
+        contentView.addSubview(pokeballBackground)
+        contentView.addSubview(pokemonFrontImageView)
+        contentView.addSubview(pokemonInfoStackView)
         
         pokemonInfoStackView.addArrangedSubview(pokemonIdLabel)
         pokemonInfoStackView.addArrangedSubview(pokemonNameLabel)
         pokemonInfoStackView.addArrangedSubview(pokemonTypeStackView) // to change to scroll view option change 'pokemonTypeStackView' to pokemonTypeScroll
 //        pokemonTypeScroll.addSubview(pokemonTypeStackView)
-        
-        guard let pokemonInfo = pokemonInfo else { return }
-        for type in pokemonInfo.types {
-            pokemonTypeStackView.addArrangedSubview(TypeBadgeView(type: type))
-        }
     }
     
     func setupConstraints() {
@@ -120,9 +134,9 @@ extension PokemonCell: ViewCode {
     
     private func setupPokemonInfoStackView() {
         NSLayoutConstraint.activate([
-            pokemonInfoStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            pokemonInfoStackView.bottomAnchor.constraint(equalTo: bottomAnchor , constant: -20),
-            pokemonInfoStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
+            pokemonInfoStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            pokemonInfoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor , constant: -20),
+            pokemonInfoStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20)
         ])
     }
     
@@ -140,15 +154,15 @@ extension PokemonCell: ViewCode {
         NSLayoutConstraint.activate([
             pokemonFrontImageView.heightAnchor.constraint(equalToConstant: 130),
             pokemonFrontImageView.widthAnchor.constraint(equalToConstant: 130),
-            pokemonFrontImageView.topAnchor.constraint(equalTo: topAnchor, constant: -25),
-            pokemonFrontImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            pokemonFrontImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10)
+            pokemonFrontImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -25),
+            pokemonFrontImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            pokemonFrontImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10)
         ])
     }
     
     private func setupDotPatternImageView() {
         NSLayoutConstraint.activate([
-            dotPatternDecoration.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            dotPatternDecoration.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             dotPatternDecoration.rightAnchor.constraint(equalTo: pokemonFrontImageView.leftAnchor, constant: -30),
             dotPatternDecoration.heightAnchor.constraint(equalToConstant: 32),
             dotPatternDecoration.widthAnchor.constraint(equalToConstant: 74)
@@ -157,24 +171,15 @@ extension PokemonCell: ViewCode {
     
     private func setupPokeballbackground() {
         NSLayoutConstraint.activate([
-            pokeballBackground.topAnchor.constraint(equalTo: topAnchor, constant: -15),
-            pokeballBackground.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 15),
-            pokeballBackground.rightAnchor.constraint(equalTo: rightAnchor, constant: 15),
+            pokeballBackground.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -15),
+            pokeballBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 15),
+            pokeballBackground.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 15),
             pokeballBackground.heightAnchor.constraint(equalToConstant: 145),
             pokeballBackground.widthAnchor.constraint(equalToConstant: 145)
         ])
     }
     
     func setupExtraConfiguration() {
-        layer.cornerRadius = 10
-        backgroundColor = pokemonInfo?.types.first?.backgroundColor() ?? PokemonType.grass.backgroundColor()
-        
-        pokemonIdLabel.text = String(format: "#%03d", pokemonInfo?.id ?? 001)
-        pokemonNameLabel.text = pokemonInfo?.name ?? "Bulbasaur"
-        let url = URL(string: pokemonInfo?.imageURL ?? "")
-        pokemonFrontImageView.kf.setImage(
-            with: url,
-            placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT
-        )
+        contentView.layer.cornerRadius = 10
     }
 }
