@@ -11,8 +11,14 @@ import UIKit
 struct K {
     
     struct IMAGES {
-        static var POKEBALL_LIST_BACKGROUND    = UIImage(named: "Pokeball")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
-        static var PATTERN_6X3_LIST_BACKGROUND = UIImage(named: "6x3")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
+        struct PLACEHOLDER {
+            static var POKEMON_FRONT = UIImage(named: "pokemonFrontImagePlaceholder")
+        }
+        
+        struct PATTERNS {
+            static var POKEBALL_LIST_BACKGROUND    = UIImage(named: "Pokeball")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
+            static var I6X3_LIST_BACKGROUND = UIImage(named: "6x3")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
+        }
     }
     
     struct FONTS {
@@ -93,6 +99,5 @@ struct K {
             static var NORMAL = #colorLiteral(red: 0.3411764706, green: 0.6980392157, blue: 0.862745098, alpha: 1)
             static var HEAVY  = #colorLiteral(red: 0.3529411765, green: 0.5725490196, blue: 0.6470588235, alpha: 1)
         }
-        
     }
 }

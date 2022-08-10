@@ -69,7 +69,9 @@ extension PokemonListWorker: PokemonListWorking {
         
         let (data, _) = try await URLSession.shared.data(from: url)
         
-        let pokemon = try JSONDecoder().decode(Pokemon.self, from: data)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let pokemon = try decoder.decode(Pokemon.self, from: data)
         
         return pokemon
     }

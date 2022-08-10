@@ -203,6 +203,11 @@ struct Other: Codable {
     let dreamWorld: DreamWorld?
     let home: Home?
     let officialArtwork: OfficialArtwork?
+    
+    enum CodingKeys: String, CodingKey {
+      case dreamWorld, home
+      case officialArtwork = "official-artwork"
+    }
 }
 
 // MARK: - OfficialArtwork

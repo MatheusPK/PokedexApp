@@ -6,14 +6,23 @@
 //
 
 import Foundation
+import Kingfisher
 import UIKit
 
-class PokemonCell: UIView {
+struct PokemonInfo {
+    let id: Int
+    let name: String
+    let types: [PokemonType]
+    let imageURL: String
+}
+
+class PokemonCell: UITableViewCell {
     
-    let pokemonId: String
-    let pokemonName: String
-    let pokemonTypes: [PokemonType]
-    let pokemonImageURL: String
+    var pokemonInfo: PokemonInfo? {
+        didSet {
+            setup()
+        }
+    }
     
     let pokemonIdLabel: UILabel = {
         let label = UILabel()
@@ -61,24 +70,19 @@ class PokemonCell: UIView {
     }()
     
     let dotPatternDecoration: UIImageView = {
-        let imageView = UIImageView(image: K.IMAGES.PATTERN_6X3_LIST_BACKGROUND)
+        let imageView = UIImageView(image: K.IMAGES.PATTERNS.I6X3_LIST_BACKGROUND)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     let pokeballBackground: UIImageView = {
-        let imageView = UIImageView(image: K.IMAGES.POKEBALL_LIST_BACKGROUND)
+        let imageView = UIImageView(image: K.IMAGES.PATTERNS.POKEBALL_LIST_BACKGROUND)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    
-    init(pokemonId: String, pokemonName: String, pokemonTypes: [PokemonType], pokemonImageURL: String) {
-        self.pokemonId = pokemonId
-        self.pokemonName = pokemonName
-        self.pokemonTypes = pokemonTypes
-        self.pokemonImageURL = pokemonImageURL
-        super.init(frame: .zero)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
     
@@ -99,7 +103,9 @@ extension PokemonCell: ViewCode {
         pokemonInfoStackView.addArrangedSubview(pokemonNameLabel)
         pokemonInfoStackView.addArrangedSubview(pokemonTypeStackView) // to change to scroll view option change 'pokemonTypeStackView' to pokemonTypeScroll
 //        pokemonTypeScroll.addSubview(pokemonTypeStackView)
-        for type in pokemonTypes {
+        
+        guard let pokemonInfo = pokemonInfo else { return }
+        for type in pokemonInfo.types {
             pokemonTypeStackView.addArrangedSubview(TypeBadgeView(type: type))
         }
     }
@@ -136,8 +142,7 @@ extension PokemonCell: ViewCode {
             pokemonFrontImageView.widthAnchor.constraint(equalToConstant: 130),
             pokemonFrontImageView.topAnchor.constraint(equalTo: topAnchor, constant: -25),
             pokemonFrontImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            pokemonFrontImageView.leftAnchor.constraint(equalTo: pokemonInfoStackView.rightAnchor, constant: 43),
-            pokemonFrontImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: 10),
+            pokemonFrontImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10)
         ])
     }
     
@@ -162,9 +167,14 @@ extension PokemonCell: ViewCode {
     
     func setupExtraConfiguration() {
         layer.cornerRadius = 10
-        backgroundColor = pokemonTypes.first?.backgroundColor()
-        pokemonIdLabel.text = pokemonId
-        pokemonNameLabel.text = pokemonName
-        pokemonFrontImageView.image = UIImage(named: "pokemonFrontImagePlaceholder")
+        backgroundColor = pokemonInfo?.types.first?.backgroundColor() ?? PokemonType.grass.backgroundColor()
+        
+        pokemonIdLabel.text = String(format: "#%03d", pokemonInfo?.id ?? 001)
+        pokemonNameLabel.text = pokemonInfo?.name ?? "Bulbasaur"
+        let url = URL(string: pokemonInfo?.imageURL ?? "")
+        pokemonFrontImageView.kf.setImage(
+            with: url,
+            placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT
+        )
     }
 }
