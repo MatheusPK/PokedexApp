@@ -14,9 +14,18 @@ protocol HomePresenterOutput: AnyObject {
 
 final class HomeViewController: UIViewController {
     
+    
+    // MARK: - Dependencies
     private let router: HomeRouter
     private let interactor: HomeInteractorInput
     private let mainView: HomeView
+    
+    // MARK: - Properties
+    var pokemons = [Pokemon]() {
+        didSet {
+            mainView.reloadTableView()
+        }
+    }
     
     init(router: HomeRouter, interactor: HomeInteractorInput, mainView: HomeView) {
         self.router = router
@@ -31,6 +40,8 @@ final class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = mainView
+        mainView.pokemonTableView.delegate = self
+        mainView.pokemonTableView.dataSource = self
     }
     
     override func viewDidLoad() {
@@ -39,9 +50,51 @@ final class HomeViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDataSource/UITableViewDelegate
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        pokemons.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
+
+        let pokemon = pokemons[indexPath.section]
+        let pokemonId = pokemon.id
+        let pokemonName = pokemon.name
+        var pokemonTypes = [PokemonType]()
+        let pokemonImageURL = pokemon.sprites?.other?.officialArtwork?.frontDefault
+
+        if let types = pokemon.types, !types.isEmpty {
+            for type in types {
+                pokemonTypes.append(type.type?.name ?? .grass)
+            }
+        }
+
+        cell.pokemonInfo = PokemonInfo(id: pokemonId!, name: pokemonName!, types: pokemonTypes, imageURL: pokemonImageURL!)
+
+        return cell
+    }
+}
+
 extension HomeViewController: HomePresenterOutput {
     func presentPokemonList(pokemonList: [Pokemon]) {
-        mainView.pokemons = pokemonList
+        pokemons = pokemonList
     }
 }
 
