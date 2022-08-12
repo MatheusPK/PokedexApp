@@ -36,7 +36,7 @@ enum PokemonType: Codable {
         case "bug":      self = .bug
         case "dark":     self = .dark
         case "dragon":   self = .dragon
-        case "electic":  self = .electric
+        case "electric":  self = .electric
         case "fairy":    self = .fairy
         case "fighting": self = .fighting
         case "fire":     self = .fire
