@@ -86,18 +86,22 @@ class PokemonCell: UITableViewCell {
     private func configure() {
         guard let pokemonId = pokemon?.id,
               let pokemonName = pokemon?.name,
-              let pokemonTypes = pokemon?.types,
               let pokemonImageURL = pokemon?.sprites?.other?.officialArtwork?.frontDefault,
-              let url = URL(string: pokemonImageURL) else { return }
-        
+              let url = URL(string: pokemonImageURL),
+              let pokemonTypes = pokemon?.types else { return }
+    
         pokemonIdLabel.text = String(format: "%003i", pokemonId)
         pokemonNameLabel.text = pokemonName
+        pokemonFrontImageView.kf.setImage(with: url, placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT)
+        
+        pokemonTypeStackView.clear()
         pokemonTypes.forEach({
             if let type = $0.type?.name {
                 pokemonTypeStackView.addArrangedSubview(TypeBadgeView(type: type))
             }
         })
-        pokemonFrontImageView.kf.setImage(with: url, placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT)
+        
+        contentView.backgroundColor = pokemonTypes.first?.type?.name?.backgroundColor() ?? PokemonType.fire.backgroundColor()
     }
     
 }
