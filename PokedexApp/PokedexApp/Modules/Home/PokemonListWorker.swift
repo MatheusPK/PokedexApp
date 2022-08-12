@@ -28,16 +28,25 @@ extension PokemonListWorker: PokemonListWorking {
     }
     
     func fetchPokemonList() async throws -> [Pokemon] {
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon") else {
+        guard var url = URL(string: "https://pokeapi.co/api/v2/pokemon") else {
             throw PokemonError.invalidURL
         }
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        var results = [PokemonResult]()
         
-        let pokemonResponse = try JSONDecoder().decode(PokemonResponse.self, from: data)
+        var pokemonResponse: PokemonResponse
+        while(true) {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            pokemonResponse = try JSONDecoder().decode(PokemonResponse.self, from: data)
+            results.append(contentsOf: pokemonResponse.results)
+            guard let next = pokemonResponse.next else { break }
+            guard let nextURL = URL(string: next) else { break }
+            url = nextURL
+        }
+
         let allPokemons = await withTaskGroup(of: PokemonOutput.self, returning: [Pokemon].self) { taskGroup in
             
-            for result in pokemonResponse.results {
+            for result in results {
                 taskGroup.addTask {
                     do {
                         let pokemon = try await self.fetchPokemon(with: result.url)
