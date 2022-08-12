@@ -31,13 +31,6 @@ class PokemonCell: UITableViewCell {
         return label
     }()
     
-    let pokemonTypeScroll: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsHorizontalScrollIndicator = false
-        return scrollView
-    }()
-    
     let pokemonTypeStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -115,13 +108,11 @@ extension PokemonCell: ViewCode {
         
         pokemonInfoStackView.addArrangedSubview(pokemonIdLabel)
         pokemonInfoStackView.addArrangedSubview(pokemonNameLabel)
-        pokemonInfoStackView.addArrangedSubview(pokemonTypeStackView) // to change to scroll view option change 'pokemonTypeStackView' to pokemonTypeScroll
-//        pokemonTypeScroll.addSubview(pokemonTypeStackView)
+        pokemonInfoStackView.addArrangedSubview(pokemonTypeStackView)
     }
     
     func setupConstraints() {
         setupPokemonInfoStackView()
-//        setupPokemonTypeScrollView()
         setupPokemonFrontImageView()
         setupDotPatternImageView()
         setupPokeballbackground()
@@ -137,16 +128,6 @@ extension PokemonCell: ViewCode {
             pokemonInfoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor , constant: -20),
             pokemonInfoStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20)
         ])
-    }
-    
-    private func setupPokemonTypeScrollView() {
-        NSLayoutConstraint.activate([
-            pokemonTypeScroll.leftAnchor.constraint(equalTo: pokemonInfoStackView.leftAnchor),
-            pokemonTypeScroll.rightAnchor.constraint(equalTo: pokemonInfoStackView.rightAnchor),
-            pokemonTypeScroll.heightAnchor.constraint(equalTo: pokemonTypeStackView.heightAnchor)
-        ])
-        
-        pokemonTypeStackView.alignToParentView(pokemonTypeScroll)
     }
     
     private func setupPokemonFrontImageView() {
