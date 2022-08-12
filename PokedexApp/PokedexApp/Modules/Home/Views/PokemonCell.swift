@@ -83,7 +83,7 @@ class PokemonCell: UITableViewCell {
               let url = URL(string: pokemonImageURL),
               let pokemonTypes = pokemon?.types else { return }
     
-        pokemonIdLabel.text = String(format: "%003i", pokemonId)
+        pokemonIdLabel.text = String(format: "#%003i", pokemonId)
         pokemonNameLabel.text = pokemonName
         pokemonFrontImageView.kf.setImage(with: url, placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT)
         
