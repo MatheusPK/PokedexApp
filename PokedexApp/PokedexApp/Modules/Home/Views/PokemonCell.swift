@@ -9,16 +9,9 @@ import Foundation
 import Kingfisher
 import UIKit
 
-struct PokemonInfo {
-    let id: Int
-    let name: String
-    let types: [PokemonType]
-    let imageURL: String
-}
-
 class PokemonCell: UITableViewCell {
     
-    var pokemonInfo: PokemonInfo? {
+    var pokemon: Pokemon? {
         didSet {
             configure()
         }
@@ -91,23 +84,21 @@ class PokemonCell: UITableViewCell {
     }
     
     private func configure() {
-        contentView.backgroundColor = pokemonInfo?.types.first?.backgroundColor() ?? PokemonType.grass.backgroundColor()
+        guard let pokemonId = pokemon?.id,
+              let pokemonName = pokemon?.name,
+              let pokemonTypes = pokemon?.types,
+              let pokemonImageURL = pokemon?.sprites?.other?.officialArtwork?.frontDefault,
+              let url = URL(string: pokemonImageURL) else { return }
         
-        pokemonIdLabel.text = String(format: "#%03d", pokemonInfo?.id ?? 001)
-        pokemonNameLabel.text = pokemonInfo?.name ?? "Bulbasaur"
-        let url = URL(string: pokemonInfo?.imageURL ?? "")
-        pokemonFrontImageView.kf.setImage(
-            with: url,
-            placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT
-        )
-        
-        pokemonTypeStackView.clear()
-        for type in pokemonInfo!.types {
-            pokemonTypeStackView.addArrangedSubview(TypeBadgeView(type: type))
-        }
-        
+        pokemonIdLabel.text = String(format: "%003i", pokemonId)
+        pokemonNameLabel.text = pokemonName
+        pokemonTypes.forEach({
+            if let type = $0.type?.name {
+                pokemonTypeStackView.addArrangedSubview(TypeBadgeView(type: type))
+            }
+        })
+        pokemonFrontImageView.kf.setImage(with: url, placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT)
     }
-    
     
 }
 
@@ -130,6 +121,10 @@ extension PokemonCell: ViewCode {
         setupPokemonFrontImageView()
         setupDotPatternImageView()
         setupPokeballbackground()
+    }
+    
+    func setupExtraConfiguration() {
+        contentView.layer.cornerRadius = 10
     }
     
     private func setupPokemonInfoStackView() {
@@ -177,9 +172,5 @@ extension PokemonCell: ViewCode {
             pokeballBackground.heightAnchor.constraint(equalToConstant: 145),
             pokeballBackground.widthAnchor.constraint(equalToConstant: 145)
         ])
-    }
-    
-    func setupExtraConfiguration() {
-        contentView.layer.cornerRadius = 10
     }
 }
