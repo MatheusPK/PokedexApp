@@ -99,7 +99,7 @@ class PokemonCell: UITableViewCell {
               let pokemonTypes = pokemon?.types else { return }
     
         pokemonIdLabel.text = String(format: "#%003i", pokemonId)
-        pokemonNameLabel.text = pokemonName
+        pokemonNameLabel.text = pokemonName.capitalized
         pokemonFrontImageView.kf.setImage(with: url, placeholder: K.IMAGES.PLACEHOLDER.POKEMON_FRONT)
         
         pokemonTypeStackView.clear()
