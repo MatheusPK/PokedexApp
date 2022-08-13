@@ -29,10 +29,16 @@ class HomeView: UIView {
         return label
     }()
     
-//    let pokemonSearchBar: UISearchBar = {
-//        let searchBar = UISearchBar()
-//        searchBar.st
-//    }()
+    let pokemonSearchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = "What Pokémon are you looking for?"
+        searchBar.searchTextField.font = K.FONTS.DESCRIPTION
+        searchBar.barTintColor = K.COLORS.BACKGROUND.DEFAULT_INPUT
+        searchBar.searchBarStyle = .minimal
+        searchBar.tintColor = K.COLORS.TYPE.PSYCHIC
+        return searchBar
+    }()
     
     let pokemonTableView: UITableView = {
         let tableView = UITableView()
@@ -64,17 +70,20 @@ extension HomeView: ViewCode {
     func setupComponents() {
         addSubview(titleLabel)
         addSubview(subtitleLabel)
+        addSubview(pokemonSearchBar)
         addSubview(pokemonTableView)
     }
     
     func setupConstraints() {
-        setupPokemonTableView()
         setupTitleLabel()
         setupSubtitleLabel()
+        setupSearchBar()
+        setupPokemonTableView()
     }
     
     func setupExtraConfiguration() {
         backgroundColor = K.COLORS.BACKGROUND.WHITE
+        pokemonTableView.keyboardDismissMode = .onDrag
     }
     
     private func setupTitleLabel() {
@@ -92,11 +101,19 @@ extension HomeView: ViewCode {
         ])
     }
     
+    private func setupSearchBar() {
+        NSLayoutConstraint.activate([
+            pokemonSearchBar.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 25),
+            pokemonSearchBar.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            pokemonSearchBar.rightAnchor.constraint(equalTo: rightAnchor, constant: -40)
+        ])
+    }
+    
     private func setupPokemonTableView() {
         NSLayoutConstraint.activate([
-            pokemonTableView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 45),
+            pokemonTableView.topAnchor.constraint(equalTo: pokemonSearchBar.bottomAnchor, constant: 0),
             pokemonTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            pokemonTableView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40),
+            pokemonTableView.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
             pokemonTableView.rightAnchor.constraint(equalTo: rightAnchor, constant: -40)
         ])
     }

@@ -40,6 +40,7 @@ final class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = mainView
+        mainView.pokemonSearchBar.delegate = self
         mainView.pokemonTableView.delegate = self
         mainView.pokemonTableView.dataSource = self
     }
@@ -48,10 +49,25 @@ final class HomeViewController: UIViewController {
         interactor.fetchPokemonList()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
 }
 
 // MARK: - UITableViewDataSource/UITableViewDelegate
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.layer.transform = CATransform3DMakeScale(0.5,0.5,0.5)
+        UIView.animate(withDuration: 0.25, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+        })
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         pokemons.count
@@ -76,6 +92,22 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.pokemon = pokemons[indexPath.section]
         return cell
     }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.placeholder = ""
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == ""{
+            searchBar.placeholder = "What Pokémon are you looking for?"
+        }
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    }
+    
 }
 
 extension HomeViewController: HomePresenterOutput {

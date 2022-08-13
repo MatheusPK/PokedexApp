@@ -76,6 +76,21 @@ class PokemonCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if selected{
+            UIView.animate(withDuration: 0.2, animations: {
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            }, completion: { finished in
+                UIView.animate(withDuration: 0.2) {
+                    self.transform = .identity
+                }
+            })
+        }
+    }
+    
+    
+    
     private func configure() {
         guard let pokemonId = pokemon?.id,
               let pokemonName = pokemon?.name,
@@ -103,8 +118,8 @@ extension PokemonCell: ViewCode {
     func setupComponents() {
         contentView.addSubview(dotPatternDecoration)
         contentView.addSubview(pokeballBackground)
-        contentView.addSubview(pokemonFrontImageView)
         contentView.addSubview(pokemonInfoStackView)
+        contentView.addSubview(pokemonFrontImageView)
         
         pokemonInfoStackView.addArrangedSubview(pokemonIdLabel)
         pokemonInfoStackView.addArrangedSubview(pokemonNameLabel)
@@ -120,6 +135,7 @@ extension PokemonCell: ViewCode {
     
     func setupExtraConfiguration() {
         contentView.layer.cornerRadius = 10
+        backgroundConfiguration = .clear()
     }
     
     private func setupPokemonInfoStackView() {
