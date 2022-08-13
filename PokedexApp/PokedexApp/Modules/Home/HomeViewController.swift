@@ -21,9 +21,15 @@ final class HomeViewController: UIViewController {
     private let mainView: HomeView
     
     // MARK: - Properties
-    var pokemons = [Pokemon]() {
+    var filteredPokemons = [Pokemon]() {
         didSet {
             mainView.reloadTableView()
+        }
+    }
+    
+    var pokemons = [Pokemon]() {
+        didSet {
+            filteredPokemons = pokemons
         }
     }
     
@@ -70,7 +76,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        pokemons.count
+        filteredPokemons.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,7 +95,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
-        cell.pokemon = pokemons[indexPath.section]
+        cell.pokemon = filteredPokemons[indexPath.section]
         return cell
     }
 }
@@ -106,6 +112,20 @@ extension HomeViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            filteredPokemons = pokemons
+        } else {
+            self.filteredPokemons = pokemons.filter {
+                guard let id = $0.id, let name = $0.name else { return false }
+                let hasMatchedName = name.range(of: searchText, options: [.anchored, .caseInsensitive, .diacriticInsensitive]) != nil
+                let hasMatchedId = String(id).range(of: searchText, options: [.anchored, .diacriticInsensitive]) != nil
+                return hasMatchedName || hasMatchedId
+            }
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
 }
