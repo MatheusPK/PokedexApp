@@ -106,7 +106,7 @@ extension HomeViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if searchBar.text == ""{
+        if searchBar.text == "" {
             searchBar.placeholder = "What Pokémon are you looking for?"
         }
     }

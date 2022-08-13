@@ -114,6 +114,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		095F024F28A8416900B30B2D /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		0978E3DA288C3C1700079DF4 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +213,7 @@
 		0978E426288EAEDC00079DF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				095F024F28A8416900B30B2D /* Cache */,
 				09E1AF01289B04FE00060446 /* UIComponents */,
 				0987B8CD28918B360034F331 /* Models */,
 				0978E432288EBA9000079DF4 /* BaseClasses */,

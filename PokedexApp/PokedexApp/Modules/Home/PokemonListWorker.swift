@@ -11,9 +11,7 @@ protocol PokemonListWorking {
     func fetchPokemonList() async throws -> [Pokemon]
 }
 
-final class PokemonListWorker {
-    // should have a network layer
-}
+final class PokemonListWorker {}
 
 extension PokemonListWorker: PokemonListWorking {
     
