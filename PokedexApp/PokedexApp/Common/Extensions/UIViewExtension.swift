@@ -18,4 +18,12 @@ extension UIView {
             rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
+    
+    func addShadow(opacity: Float, offset: CGSize, radius: CGFloat, color: CGColor = UIColor.black.cgColor) {
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offset
+        layer.shadowRadius = radius
+        layer.masksToBounds = false
+    }
+    
 }

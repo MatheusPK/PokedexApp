@@ -110,6 +110,7 @@ class PokemonCell: UITableViewCell {
         })
         
         contentView.backgroundColor = pokemonTypes.first?.type?.name?.backgroundColor() ?? PokemonType.fire.backgroundColor()
+        contentView.layer.shadowColor = pokemonTypes.first?.type?.name?.backgroundColor().cgColor ?? PokemonType.fire.backgroundColor().cgColor
     }
     
 }
@@ -136,6 +137,7 @@ extension PokemonCell: ViewCode {
     func setupExtraConfiguration() {
         contentView.layer.cornerRadius = 10
         backgroundConfiguration = .clear()
+        contentView.addShadow(opacity: 0.7, offset: CGSize(width: 0, height: 5), radius: 5)
     }
     
     private func setupPokemonInfoStackView() {
