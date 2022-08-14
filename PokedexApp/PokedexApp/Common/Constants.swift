@@ -20,6 +20,13 @@ struct K {
             static var POKEBALL_CELL_BACKGROUND = UIImage(named: "Pokeball")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
             static var I6X3_LIST_BACKGROUND     = UIImage(named: "6x3")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
         }
+        
+        struct ICONS {
+            static var GENERATION = UIImage(named: "Generation")
+            static var SORT       = UIImage(named: "Sort")
+            static var FILTER     = UIImage(named: "Filter")
+        }
+        
     }
     
     struct FONTS {
