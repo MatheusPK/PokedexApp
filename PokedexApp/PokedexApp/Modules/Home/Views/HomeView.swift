@@ -10,6 +10,12 @@ import UIKit
 
 class HomeView: UIView {
     
+    let pokeballBackground: UIImageView = {
+        let imageView = UIImageView(image: K.IMAGES.PATTERNS.POKEBALL_HOME_BACKGROUND)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +74,7 @@ class HomeView: UIView {
 // MARK: - ViewCode
 extension HomeView: ViewCode {
     func setupComponents() {
+        addSubview(pokeballBackground)
         addSubview(titleLabel)
         addSubview(subtitleLabel)
         addSubview(pokemonSearchBar)
@@ -75,6 +82,7 @@ extension HomeView: ViewCode {
     }
     
     func setupConstraints() {
+        setupPokeballBackground()
         setupTitleLabel()
         setupSubtitleLabel()
         setupSearchBar()
@@ -84,6 +92,15 @@ extension HomeView: ViewCode {
     func setupExtraConfiguration() {
         backgroundColor = K.COLORS.BACKGROUND.WHITE
         pokemonTableView.keyboardDismissMode = .onDrag
+    }
+    
+    private func setupPokeballBackground() {
+        NSLayoutConstraint.activate([
+            pokeballBackground.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pokeballBackground.centerYAnchor.constraint(equalTo: topAnchor),
+            pokeballBackground.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            pokeballBackground.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
+        ])
     }
     
     private func setupTitleLabel() {

@@ -16,8 +16,9 @@ struct K {
         }
         
         struct PATTERNS {
-            static var POKEBALL_LIST_BACKGROUND    = UIImage(named: "Pokeball")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
-            static var I6X3_LIST_BACKGROUND = UIImage(named: "6x3")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
+            static var POKEBALL_HOME_BACKGROUND = UIImage(named: "Pokeball")?.tintedWithLinearGradientColors(colorsArr: [K.COLORS.BACKGROUND.POKEBALL_HOME_BACKGROUND_GRADIENT.withAlphaComponent(1).cgColor, UIColor.white.withAlphaComponent(1).cgColor])
+            static var POKEBALL_CELL_BACKGROUND = UIImage(named: "Pokeball")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
+            static var I6X3_LIST_BACKGROUND     = UIImage(named: "6x3")?.tintedWithLinearGradientColors(colorsArr: [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.3).cgColor])
         }
     }
     
@@ -75,10 +76,11 @@ struct K {
         }
         
         struct BACKGROUND {
-            static var WHITE         = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            static var DEFAULT_INPUT = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
-            static var PRESSED_INPUT = #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)
-            static var MODAL         = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1058823529, alpha: 0.5)
+            static var WHITE                             = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            static var DEFAULT_INPUT                     = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+            static var PRESSED_INPUT                     = #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)
+            static var MODAL                             = #colorLiteral(red: 0.09019607843, green: 0.09019607843, blue: 0.1058823529, alpha: 0.5)
+            static var POKEBALL_HOME_BACKGROUND_GRADIENT = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
         }
         
         struct TEXT {

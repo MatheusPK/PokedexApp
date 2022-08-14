@@ -62,7 +62,7 @@ class PokemonCell: UITableViewCell {
     }()
     
     let pokeballBackground: UIImageView = {
-        let imageView = UIImageView(image: K.IMAGES.PATTERNS.POKEBALL_LIST_BACKGROUND)
+        let imageView = UIImageView(image: K.IMAGES.PATTERNS.POKEBALL_CELL_BACKGROUND)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

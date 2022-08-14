@@ -53,6 +53,9 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         interactor.fetchPokemonList()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
