@@ -140,8 +140,8 @@ extension PokemonCell: ViewCode {
     
     private func setupPokemonInfoStackView() {
         NSLayoutConstraint.activate([
-            pokemonInfoStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            pokemonInfoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor , constant: -20),
+            pokemonInfoStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 17),
+            pokemonInfoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor , constant: -17),
             pokemonInfoStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20)
         ])
     }
