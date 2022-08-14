@@ -53,7 +53,7 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationController()
+        setupNavigationBar()
         interactor.fetchPokemonList()
     }
     
@@ -102,6 +102,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
+// MARK: - UISearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.placeholder = ""
@@ -132,14 +134,17 @@ extension HomeViewController: UISearchBarDelegate {
     
 }
 
+// MARK: - HomePresenterOutput
 extension HomeViewController: HomePresenterOutput {
     func presentPokemonList(pokemonList: [Pokemon]) {
         pokemons = pokemonList
     }
 }
 
+
+// MARK: - Setup Navigation Bar
 extension HomeViewController {
-    private func setupNavigationController() {
+    private func setupNavigationBar() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
