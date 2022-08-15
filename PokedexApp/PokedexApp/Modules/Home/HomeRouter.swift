@@ -6,7 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 class HomeRouter {
+    weak var navigationController: UINavigationController?
+    
+   @objc func routeToGeneration() {}
+   @objc func routeToSort() {}
+   @objc func routeToFilter() {}
     
 }
