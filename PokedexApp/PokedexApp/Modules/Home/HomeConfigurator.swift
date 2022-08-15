@@ -25,7 +25,7 @@ final class HomeConfigurator: ModuleFactory {
         
         presenter.viewController = viewController
         
-        router.navigationController = viewController.navigationController
+        router.viewController = viewController
         
         return viewController
     }

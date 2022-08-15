@@ -145,17 +145,18 @@ extension HomeViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = .black
         
-        let generationItem = UIBarButtonItem(image: K.IMAGES.ICONS.GENERATION, style: .plain, target: self, action: #selector(placeholderFunction))
-        let sortItem = UIBarButtonItem(image: K.IMAGES.ICONS.SORT, style: .plain, target: self, action: #selector(placeholderFunction))
-        let filterItem = UIBarButtonItem(image: K.IMAGES.ICONS.FILTER, style: .plain, target: self, action: #selector(placeholderFunction))
+        let generationItem = UIBarButtonItem(image: K.IMAGES.ICONS.GENERATION, style: .plain) { _ in
+            self.router.routeToGeneration()
+        }
+        let sortItem = UIBarButtonItem(image: K.IMAGES.ICONS.SORT, style: .plain) { _ in
+            self.router.routeToSort()
+        }
+        let filterItem = UIBarButtonItem(image: K.IMAGES.ICONS.FILTER, style: .plain) { _ in
+            self.router.routeToFilter()
+        }
         
         navigationItem.rightBarButtonItems = [filterItem, sortItem, generationItem]
         
     }
-    
-    @objc func placeholderFunction() {
-        
-    }
-    
 }
 

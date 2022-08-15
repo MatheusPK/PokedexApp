@@ -26,7 +26,18 @@ class FiltersViewController: UIViewController {
     }
     
     override func loadView() {
-        view = mainView
+        self.view = mainView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let presentationController = presentationController as? UISheetPresentationController {
+            presentationController.detents = [
+                .medium(),
+                .large()
+            ]
+            presentationController.prefersGrabberVisible = true
+        }
     }
 }
 

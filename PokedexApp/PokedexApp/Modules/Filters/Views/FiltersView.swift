@@ -9,8 +9,16 @@ import Foundation
 import UIKit
 
 class FiltersView: UIView {
+    
+    let label: UILabel = {
+        let label = UILabel()
+        label.text = "dsfrsdfdsf"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     init() {
         super.init(frame: .zero)
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -19,10 +27,19 @@ class FiltersView: UIView {
 }
 
 extension FiltersView: ViewCode {
-    func setupComponents() {}
+    func setupComponents() {
+        addSubview(label)
+    }
     
-    func setupConstraints() {}
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+    }
     
-    func setupExtraConfiguration() {}
+    func setupExtraConfiguration() {
+        backgroundColor = .red
+    }
     
 }
