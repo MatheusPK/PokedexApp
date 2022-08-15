@@ -8,12 +8,7 @@
 import Foundation
 import UIKit
 
-protocol HomePresenterOutput: AnyObject {
-    func presentPokemonList(pokemonList: [Pokemon])
-}
-
 final class HomeViewController: UIViewController {
-    
     
     // MARK: - Dependencies
     private let router: HomeRouter

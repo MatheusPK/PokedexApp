@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol HomePresenterOutput: AnyObject {
+    func presentPokemonList(pokemonList: [Pokemon])
+}
+
 class HomePresenter {
     weak var viewController: HomePresenterOutput?
 }
