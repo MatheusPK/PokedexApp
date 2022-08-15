@@ -14,7 +14,6 @@ class HomeRouter {
     func routeToGeneration() {}
     func routeToSort() {}
     func routeToFilter() {
-        print("to aqui")
         let vc = FiltersConfigurator.make(with: .init())
         viewController?.navigationController?.present(vc, animated: true)
     }
