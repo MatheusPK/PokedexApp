@@ -10,6 +10,12 @@
 		095F024628A174D800B30B2D /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F024528A174D800B30B2D /* UIImageExtension.swift */; };
 		095F024928A1CC9400B30B2D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 095F024828A1CC9400B30B2D /* Kingfisher */; };
 		095F024B28A3594D00B30B2D /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F024A28A3594D00B30B2D /* UIStackViewExtension.swift */; };
+		095F025728A9D76E00B30B2D /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F025628A9D76E00B30B2D /* FiltersViewController.swift */; };
+		095F025928A9D79300B30B2D /* FiltersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F025828A9D79300B30B2D /* FiltersInteractor.swift */; };
+		095F025B28A9D7AC00B30B2D /* FiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F025A28A9D7AC00B30B2D /* FiltersPresenter.swift */; };
+		095F025D28A9D7BB00B30B2D /* FiltersConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F025C28A9D7BA00B30B2D /* FiltersConfigurator.swift */; };
+		095F025F28A9D7CF00B30B2D /* FiltersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F025E28A9D7CF00B30B2D /* FiltersRouter.swift */; };
+		095F026228A9D86F00B30B2D /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F026128A9D86F00B30B2D /* FiltersView.swift */; };
 		0978E3E7288C3C1700079DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E3E6288C3C1700079DF4 /* AppDelegate.swift */; };
 		0978E3E9288C3C1700079DF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0978E3E8288C3C1700079DF4 /* SceneDelegate.swift */; };
 		0978E3F0288C3C1900079DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0978E3EF288C3C1900079DF4 /* Assets.xcassets */; };
@@ -57,6 +63,12 @@
 /* Begin PBXFileReference section */
 		095F024528A174D800B30B2D /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		095F024A28A3594D00B30B2D /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
+		095F025628A9D76E00B30B2D /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		095F025828A9D79300B30B2D /* FiltersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersInteractor.swift; sourceTree = "<group>"; };
+		095F025A28A9D7AC00B30B2D /* FiltersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersPresenter.swift; sourceTree = "<group>"; };
+		095F025C28A9D7BA00B30B2D /* FiltersConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersConfigurator.swift; sourceTree = "<group>"; };
+		095F025E28A9D7CF00B30B2D /* FiltersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersRouter.swift; sourceTree = "<group>"; };
+		095F026128A9D86F00B30B2D /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		0978E3E3288C3C1700079DF4 /* PokedexApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0978E3E6288C3C1700079DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0978E3E8288C3C1700079DF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +133,27 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		095F025228A9D72500B30B2D /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				095F026028A9D86400B30B2D /* Views */,
+				095F025628A9D76E00B30B2D /* FiltersViewController.swift */,
+				095F025828A9D79300B30B2D /* FiltersInteractor.swift */,
+				095F025A28A9D7AC00B30B2D /* FiltersPresenter.swift */,
+				095F025C28A9D7BA00B30B2D /* FiltersConfigurator.swift */,
+				095F025E28A9D7CF00B30B2D /* FiltersRouter.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		095F026028A9D86400B30B2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				095F026128A9D86F00B30B2D /* FiltersView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0978E3DA288C3C1700079DF4 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +206,7 @@
 		0978E416288EABEF00079DF4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				095F025228A9D72500B30B2D /* Filters */,
 				0978E419288EAC8100079DF4 /* Home */,
 			);
 			path = Modules;
@@ -419,14 +453,18 @@
 				09E1AF03289B051100060446 /* TypeBadgeView.swift in Sources */,
 				095F024628A174D800B30B2D /* UIImageExtension.swift in Sources */,
 				0978E422288EACEC00079DF4 /* HomePresenter.swift in Sources */,
+				095F025B28A9D7AC00B30B2D /* FiltersPresenter.swift in Sources */,
 				0987B8D32892A78A0034F331 /* PokemonListWorker.swift in Sources */,
 				0978E41E288EACC600079DF4 /* HomeViewController.swift in Sources */,
 				0978E434288EBAA200079DF4 /* BaseViewController.swift in Sources */,
+				095F025728A9D76E00B30B2D /* FiltersViewController.swift in Sources */,
 				09E1AF05289B06F200060446 /* PokemonType.swift in Sources */,
+				095F025F28A9D7CF00B30B2D /* FiltersRouter.swift in Sources */,
 				0978E431288EB30600079DF4 /* ModuleFactory.swift in Sources */,
 				0987B8CF28918B600034F331 /* PokemonResponse.swift in Sources */,
 				0987B8D128919C640034F331 /* Pokemon.swift in Sources */,
 				09E1AF07289E97EF00060446 /* UIViewExtension.swift in Sources */,
+				095F025D28A9D7BB00B30B2D /* FiltersConfigurator.swift in Sources */,
 				0978E41B288EAC9700079DF4 /* HomeConfigurator.swift in Sources */,
 				0978E420288EACDA00079DF4 /* HomeInteractor.swift in Sources */,
 				0978E425288EAD0E00079DF4 /* HomeRouter.swift in Sources */,
@@ -435,7 +473,9 @@
 				095F024B28A3594D00B30B2D /* UIStackViewExtension.swift in Sources */,
 				0978E3E7288C3C1700079DF4 /* AppDelegate.swift in Sources */,
 				0978E437288EBAFD00079DF4 /* HomeView.swift in Sources */,
+				095F026228A9D86F00B30B2D /* FiltersView.swift in Sources */,
 				0978E42F288EB11600079DF4 /* ViewCode.swift in Sources */,
+				095F025928A9D79300B30B2D /* FiltersInteractor.swift in Sources */,
 				0978E3E9288C3C1700079DF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
