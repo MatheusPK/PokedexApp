@@ -31,6 +31,10 @@ class FiltersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSheetStyle()
+    }
+    
+    private func setupSheetStyle() {
         if let presentationController = presentationController as? UISheetPresentationController {
             presentationController.detents = [
                 .medium(),
