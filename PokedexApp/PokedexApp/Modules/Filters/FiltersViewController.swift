@@ -36,10 +36,7 @@ class FiltersViewController: UIViewController {
     
     private func setupSheetStyle() {
         if let presentationController = presentationController as? UISheetPresentationController {
-            presentationController.detents = [
-                .medium(),
-                .large()
-            ]
+            presentationController.detents = [.medium(), .large()]
             presentationController.prefersGrabberVisible = true
         }
     }
