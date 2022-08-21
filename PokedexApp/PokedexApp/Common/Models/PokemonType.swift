@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum PokemonType: Codable {
+enum PokemonType: Codable, CaseIterable {
     case bug
     case dark
     case dragon
