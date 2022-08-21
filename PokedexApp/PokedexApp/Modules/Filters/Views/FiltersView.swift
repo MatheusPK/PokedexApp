@@ -182,13 +182,11 @@ extension FiltersView: ViewCode {
     }
     
     private func setupTypeScrollView() {
-        typeScrollView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         typeStackView.alignToParentView(typeScrollView)
         typeStackView.heightAnchor.constraint(equalTo: typeScrollView.heightAnchor, multiplier: 0.9).isActive = true
     }
     
     private func setupWeaknessesScrollView() {
-        weaknessesScrollView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         weaknessesStackView.alignToParentView(weaknessesScrollView)
         weaknessesStackView.heightAnchor.constraint(equalTo: weaknessesScrollView.heightAnchor, multiplier: 0.9).isActive = true
     }
