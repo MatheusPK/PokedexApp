@@ -102,6 +102,27 @@ class FiltersView: UIView {
         return label
     }()
     
+    let heightsScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    
+    let heightsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
+    let heightsContentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
     let weightsLabel: UILabel = {
         let label = UILabel()
         label.font = K.FONTS.POKEMON_NAME
@@ -152,9 +173,15 @@ extension FiltersView: ViewCode {
         weaknessesScrollView.addSubview(weaknessesStackView)
         PokemonType.allCases.forEach { type in weaknessesStackView.addArrangedSubview(TypeIconView(type: type)) }
         
+        heightsContentStackView.addArrangedSubview(heightsLabel)
+        heightsContentStackView.addArrangedSubview(heightsScrollView)
+        heightsScrollView.addSubview(heightsStackView)
+        PokemonHeight.allCases.forEach { height in heightsStackView.addArrangedSubview(HeightIconView(height: height)) }
+        
         filtersStackView.addArrangedSubview(headerContentStackView)
         filtersStackView.addArrangedSubview(typeContentStackView)
         filtersStackView.addArrangedSubview(weaknessesContentStackView)
+        filtersStackView.addArrangedSubview(heightsContentStackView)
         
         addSubview(filtersStackView)
     }
@@ -164,6 +191,7 @@ extension FiltersView: ViewCode {
         setupHeaderContentView()
         setupTypeScrollView()
         setupWeaknessesScrollView()
+        setupHeightsScrollView()
     }
     
     func setupExtraConfiguration() {
@@ -189,6 +217,11 @@ extension FiltersView: ViewCode {
     private func setupWeaknessesScrollView() {
         weaknessesStackView.alignToParentView(weaknessesScrollView)
         weaknessesStackView.heightAnchor.constraint(equalTo: weaknessesScrollView.heightAnchor, multiplier: 0.9).isActive = true
+    }
+    
+    private func setupHeightsScrollView() {
+        heightsStackView.alignToParentView(heightsScrollView)
+        heightsStackView.heightAnchor.constraint(equalTo: heightsScrollView.heightAnchor, multiplier: 0.9).isActive = true
     }
     
 }
