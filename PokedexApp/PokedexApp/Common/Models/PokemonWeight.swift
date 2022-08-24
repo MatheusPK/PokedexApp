@@ -27,7 +27,7 @@ enum PokemonWeight: Codable, CaseIterable {
     func icon() -> UIImage? {
         switch self {
         case .light:  return UIImage(named: "Light")
-        case .normal: return UIImage(named: "Normal")
+        case .normal: return UIImage(named: "wNormal")
         case .heavy:   return UIImage(named: "Heavy")
         }
     }

@@ -53,7 +53,6 @@ class FiltersView: UIView {
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.distribution = .fillProportionally
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -125,10 +124,31 @@ class FiltersView: UIView {
     
     let weightsLabel: UILabel = {
         let label = UILabel()
-        label.font = K.FONTS.POKEMON_NAME
+        label.font = K.FONTS.FILTER_TITLE
         label.textColor = K.COLORS.TEXT.BLACK
         label.text = "Weights"
         return label
+    }()
+    
+    let weightsScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    
+    let weightsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
+    let weightsContentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
+        return stackView
     }()
     
     let numberRangeLabel: UILabel = {
@@ -178,10 +198,16 @@ extension FiltersView: ViewCode {
         heightsScrollView.addSubview(heightsStackView)
         PokemonHeight.allCases.forEach { height in heightsStackView.addArrangedSubview(HeightIconView(height: height)) }
         
+        weightsContentStackView.addArrangedSubview(weightsLabel)
+        weightsContentStackView.addArrangedSubview(weightsScrollView)
+        weightsScrollView.addSubview(weightsStackView)
+        PokemonWeight.allCases.forEach { weight in weightsStackView.addArrangedSubview(WeightIconView(weight: weight)) }
+        
         filtersStackView.addArrangedSubview(headerContentStackView)
         filtersStackView.addArrangedSubview(typeContentStackView)
         filtersStackView.addArrangedSubview(weaknessesContentStackView)
         filtersStackView.addArrangedSubview(heightsContentStackView)
+        filtersStackView.addArrangedSubview(weightsContentStackView)
         
         addSubview(filtersStackView)
     }
@@ -192,6 +218,7 @@ extension FiltersView: ViewCode {
         setupTypeScrollView()
         setupWeaknessesScrollView()
         setupHeightsScrollView()
+        setupWeightsScrollView()
     }
     
     func setupExtraConfiguration() {
@@ -222,6 +249,11 @@ extension FiltersView: ViewCode {
     private func setupHeightsScrollView() {
         heightsStackView.alignToParentView(heightsScrollView)
         heightsStackView.heightAnchor.constraint(equalTo: heightsScrollView.heightAnchor, multiplier: 0.9).isActive = true
+    }
+    
+    private func setupWeightsScrollView() {
+        weightsStackView.alignToParentView(weightsScrollView)
+        weightsStackView.heightAnchor.constraint(equalTo: weightsScrollView.heightAnchor, multiplier: 0.9).isActive = true
     }
     
 }
