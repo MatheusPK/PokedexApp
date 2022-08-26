@@ -159,6 +159,14 @@ class FiltersView: UIView {
         return label
     }()
     
+    let numberRangeContentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
     let filtersStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -203,11 +211,14 @@ extension FiltersView: ViewCode {
         weightsScrollView.addSubview(weightsStackView)
         PokemonWeight.allCases.forEach { weight in weightsStackView.addArrangedSubview(WeightIconView(weight: weight)) }
         
+        numberRangeContentStackView.addArrangedSubview(numberRangeLabel)
+        
         filtersStackView.addArrangedSubview(headerContentStackView)
         filtersStackView.addArrangedSubview(typeContentStackView)
         filtersStackView.addArrangedSubview(weaknessesContentStackView)
         filtersStackView.addArrangedSubview(heightsContentStackView)
         filtersStackView.addArrangedSubview(weightsContentStackView)
+        filtersStackView.addArrangedSubview(numberRangeContentStackView)
         
         addSubview(filtersStackView)
     }
