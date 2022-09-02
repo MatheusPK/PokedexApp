@@ -159,6 +159,11 @@ class FiltersView: UIView {
         return label
     }()
     
+    let numberRangeSlider: RangeSlider = {
+        let slider = RangeSlider(minValue: 1, maxValue: 898)
+        return slider
+    }()
+    
     let numberRangeContentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -212,6 +217,7 @@ extension FiltersView: ViewCode {
         PokemonWeight.allCases.forEach { weight in weightsStackView.addArrangedSubview(WeightIconView(weight: weight)) }
         
         numberRangeContentStackView.addArrangedSubview(numberRangeLabel)
+        numberRangeContentStackView.addArrangedSubview(numberRangeSlider)
         
         filtersStackView.addArrangedSubview(headerContentStackView)
         filtersStackView.addArrangedSubview(typeContentStackView)
