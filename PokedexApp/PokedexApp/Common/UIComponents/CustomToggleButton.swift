@@ -14,7 +14,7 @@ class CustomToggleButton: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = K.COLORS.BACKGROUND.WHITE
-        view.layer.cornerRadius = 9
+        view.layer.cornerRadius = 6
         return view
     }()
     
@@ -41,13 +41,13 @@ extension CustomToggleButton: ViewCode {
     func setupExtraConfiguration() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = K.COLORS.TYPE.PSYCHIC
-        layer.cornerRadius = 15
+        layer.cornerRadius = 10
     }
     
     private func setupContentView() {
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 30),
-            heightAnchor.constraint(equalToConstant: 30)
+            widthAnchor.constraint(equalToConstant: 20),
+            heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -55,8 +55,8 @@ extension CustomToggleButton: ViewCode {
         NSLayoutConstraint.activate([
             innerCircle.centerXAnchor.constraint(equalTo: centerXAnchor),
             innerCircle.centerYAnchor.constraint(equalTo: centerYAnchor),
-            innerCircle.widthAnchor.constraint(equalToConstant: 18),
-            innerCircle.heightAnchor.constraint(equalToConstant: 18)
+            innerCircle.widthAnchor.constraint(equalToConstant: 12),
+            innerCircle.heightAnchor.constraint(equalToConstant: 12)
         ])
     }
 }

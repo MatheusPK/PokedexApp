@@ -37,6 +37,7 @@ extension PokemonListWorker: PokemonListWorking {
             let (data, _) = try await URLSession.shared.data(from: url)
             pokemonResponse = try JSONDecoder().decode(PokemonResponse.self, from: data)
             results.append(contentsOf: pokemonResponse.results)
+//            break
             guard let next = pokemonResponse.next else { break }
             guard let nextURL = URL(string: next) else { break }
             url = nextURL

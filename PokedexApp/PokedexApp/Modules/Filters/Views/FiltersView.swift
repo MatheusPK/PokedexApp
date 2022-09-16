@@ -51,7 +51,7 @@ class FiltersView: UIView {
     let typeStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = 5
         stackView.distribution = .fillProportionally
         return stackView
     }()
@@ -61,6 +61,7 @@ class FiltersView: UIView {
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.distribution = .fillProportionally
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -172,6 +173,22 @@ class FiltersView: UIView {
         return stackView
     }()
     
+    let resetButton: PokeButton = {
+        return PokeButton(title: "Reset", size: .medium)
+    }()
+    
+    let applyButton: UIButton = {
+        return PokeButton(title: "Apply", size: .medium)
+    }()
+    
+    let buttonsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 14
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
     let filtersStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -179,6 +196,14 @@ class FiltersView: UIView {
         stackView.distribution = .fillProportionally
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
+    }()
+    
+    let filtersScrollView: UIScrollView = {
+        return UIScrollView()
+    }()
+    
+    let filtersContentView: UIView = {
+        return UIView()
     }()
     
     init() {
@@ -219,17 +244,27 @@ extension FiltersView: ViewCode {
         numberRangeContentStackView.addArrangedSubview(numberRangeLabel)
         numberRangeContentStackView.addArrangedSubview(numberRangeSlider)
         
+        buttonsStackView.addArrangedSubview(resetButton)
+        buttonsStackView.addArrangedSubview(applyButton)
+        
         filtersStackView.addArrangedSubview(headerContentStackView)
         filtersStackView.addArrangedSubview(typeContentStackView)
         filtersStackView.addArrangedSubview(weaknessesContentStackView)
         filtersStackView.addArrangedSubview(heightsContentStackView)
         filtersStackView.addArrangedSubview(weightsContentStackView)
         filtersStackView.addArrangedSubview(numberRangeContentStackView)
+        filtersStackView.addArrangedSubview(buttonsStackView)
         
-        addSubview(filtersStackView)
+        filtersStackView.setCustomSpacing(50, after: numberRangeContentStackView)
+        
+        addSubview(filtersScrollView)
+        filtersScrollView.addSubview(filtersContentView)
+        filtersContentView.addSubview(filtersStackView)
     }
     
     func setupConstraints() {
+        setupFiltersScrollView()
+        setupFiltersContentView()
         setupFiltersStackView()
         setupHeaderContentView()
         setupTypeScrollView()
@@ -242,10 +277,28 @@ extension FiltersView: ViewCode {
         backgroundColor = .white
     }
     
+    private func setupFiltersScrollView() {
+        filtersScrollView.translatesAutoresizingMaskIntoConstraints = false
+        filtersScrollView.alignToParentView(self)
+        filtersScrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+
+    }
+    
+    private func setupFiltersContentView() {
+        filtersContentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            filtersContentView.topAnchor.constraint(equalTo: filtersScrollView.topAnchor),
+            filtersContentView.bottomAnchor.constraint(equalTo: filtersScrollView.bottomAnchor),
+            filtersContentView.centerXAnchor.constraint(equalTo: filtersScrollView.centerXAnchor),
+            filtersContentView.widthAnchor.constraint(equalTo: filtersScrollView.widthAnchor),
+            filtersContentView.heightAnchor.constraint(equalTo: filtersStackView.heightAnchor, constant: 65)
+        ])
+    }
+    
     private func setupFiltersStackView() {
         NSLayoutConstraint.activate([
-            filtersStackView.topAnchor.constraint(equalTo: topAnchor, constant: 30),
-            filtersStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 40)
+            filtersStackView.topAnchor.constraint(equalTo: filtersContentView.topAnchor, constant: 30),
+            filtersStackView.leftAnchor.constraint(equalTo: filtersContentView.leftAnchor, constant: 40)
         ])
     }
     
@@ -271,6 +324,7 @@ extension FiltersView: ViewCode {
     private func setupWeightsScrollView() {
         weightsStackView.alignToParentView(weightsScrollView)
         weightsStackView.heightAnchor.constraint(equalTo: weightsScrollView.heightAnchor, multiplier: 0.9).isActive = true
+        buttonsStackView.widthAnchor.constraint(equalTo: filtersStackView.widthAnchor).isActive = true
     }
     
 }
