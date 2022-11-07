@@ -50,6 +50,7 @@ class HomeView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(PokemonCell.self, forCellReuseIdentifier: "PokemonCell")
+        tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         return tableView
     }()
